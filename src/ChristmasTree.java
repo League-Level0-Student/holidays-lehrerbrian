@@ -19,7 +19,6 @@ public class ChristmasTree {
         ohChristmasTree.drawTreeTrunk();
     }
 
-
     double treeWidth = 15;
     double scale = 1.1;    //This is how much the width of the tree increases with each layer down
 
@@ -30,27 +29,35 @@ public class ChristmasTree {
 
         // 1. Make a variable for turnAmount and set it to 175
 
-
+int turnamount=175;
         // 2. Start the Robot facing to the right
-
-
+rob.setAngle(90);
         // 5. Repeat steps 3 through 11, 11 times
 
+for (int i = 0; i <11 ; i++) {
+
+	
 
             // 3. Move the robot the width of the tree
-    
+    rob.move((int) treeWidth);
             // 4. Turn the robot the current turnAmount to the right
-    
+    rob.turn(turnamount);
             // 6. Set the treeWidth to the current treeWidth times the scale
-    
+    treeWidth=treeWidth*scale;
             // 7. Move the robot the width of a tree again
-    
+    rob.move((int) treeWidth);
             // 9. Turn the robot the current turn amount to the LEFT
-    
+    rob.turn(-turnamount);
             // 10. Set the treeWidth to the current treeWidth times the scale again
-    
+    treeWidth=treeWidth*scale;
             // 11. Decrease turnAmount by 1
+turnamount--;
+rob.move((int) treeWidth);
 
+
+
+
+}
 
 }
     
@@ -72,7 +79,16 @@ public class ChristmasTree {
 
     }
     
-    void drawStar() {
+    void drawStar() { rob.miniaturize();
+    rob.hide();
+    rob.setSpeed(1000);
+    rob.penDown();
+    
+	for (int i = 0; i <19 ; i++) {rob.move(50);
+	rob.turn(152);
+		
+	}
+
         // * Optional: Draw a red star on top of the tree. Hint: 144 degrees makes a star.
     
     }
